@@ -40,11 +40,10 @@ public:
         size_t length = strlen(str) + 1;
         m_str = new char[length];
         strcpy_s(m_str, length, str);
-        //return *this;
     }
 
     void operator=(CMyString&& str) {
-        std::cout << "MS" << std::endl;
+        std::cout << "MS operator=" << std::endl;
         delete[] m_str;
         size_t length = strlen(str.m_str) + 1;
         m_str = new char[length];
@@ -53,6 +52,7 @@ public:
 
     // Przeciążony operator +=
     CMyString& operator+=(const char* str) {
+        std::cout << "Operator +=" << std::endl;
         size_t newLength = strlen(m_str) + strlen(str) + 1;
         char* temp = new char[newLength];
         strcpy_s(temp, newLength, m_str);
@@ -64,6 +64,7 @@ public:
 
     // Przeciążony operator +
     CMyString operator+(const char* str) const {
+        std::cout << "Operator +" << std::endl;
         CMyString result(*this);
         result += str;
         return std::move(result);

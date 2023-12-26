@@ -6,7 +6,6 @@
 int main() {
     // Testowanie klasy CMyString
     CMyString c_str;
-    CMyString c_str2;
     c_str = "Ala ma ";
     c_str += "kota ";
     c_str = c_str + "i psa";
