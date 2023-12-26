@@ -33,6 +33,10 @@ public:
         delete[] m_str;
     }
 
+    char* getM_Str() {
+        return m_str;
+    }
+
     // Przeciążony operator przypisania =
     void operator=(const char* str) {
         std::cout << "Normal operator=" << std::endl;
