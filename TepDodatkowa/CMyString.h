@@ -16,7 +16,7 @@ public:
     CMyString(const CMyString& other) {
         if (other.m_str != nullptr) {
             m_str = new char[strlen(other.m_str) + 1];
-            strcpy(m_str, other.m_str);
+            strcpy_s(m_str, strlen(other.m_str) + 1, other.m_str);
         }
         else {
             m_str = nullptr;
@@ -31,16 +31,18 @@ public:
     // Przeciążony operator przypisania =
     CMyString& operator=(const char* str) {
         delete[] m_str;
-        m_str = new char[strlen(str) + 1];
-        strcpy(m_str, str);
+        size_t length = strlen(str) + 1;
+        m_str = new char[length];
+        strcpy_s(m_str, length, str);
         return *this;
     }
 
     // Przeciążony operator +=
     CMyString& operator+=(const char* str) {
-        char* temp = new char[strlen(m_str) + strlen(str) + 1];
-        strcpy(temp, m_str);
-        strcat(temp, str);
+        size_t newLength = strlen(m_str) + strlen(str) + 1;
+        char* temp = new char[newLength];
+        strcpy_s(temp, newLength, m_str);
+        strcat_s(temp, newLength, str);
         delete[] m_str;
         m_str = temp;
         return *this;
