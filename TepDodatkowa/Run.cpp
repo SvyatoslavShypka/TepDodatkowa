@@ -17,6 +17,7 @@ int main() {
     // Testowanie operatora rzutowania do bool
     if (c_str) {
         std::cout << "Obiekt CMyString nie jest pusty." << std::endl;
+        std::cout << c_str.sToStandard() << std::endl;
     }
     else {
         std::cout << "Obiekt CMyString jest pusty." << std::endl;

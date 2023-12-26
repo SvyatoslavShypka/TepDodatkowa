@@ -35,6 +35,7 @@ public:
 
     // Przeciążony operator przypisania =
     void operator=(const char* str) {
+        std::cout << "Normal operator=" << std::endl;
         delete[] m_str;
         size_t length = strlen(str) + 1;
         m_str = new char[length];
@@ -48,17 +49,7 @@ public:
         size_t length = strlen(str.m_str) + 1;
         m_str = new char[length];
         strcpy_s(m_str, length, str.m_str);
-        //return *this;
     }
-
-    //// Przeciążony operator przypisania =
-    //CMyString& operator=(const char* str) {
-    //    delete[] m_str;
-    //    size_t length = strlen(str) + 1;
-    //    m_str = new char[length];
-    //    strcpy_s(m_str, length, str);
-    //    return *this;
-    //}
 
     // Przeciążony operator +=
     CMyString& operator+=(const char* str) {
