@@ -42,12 +42,12 @@ public:
         //return *this;
     }
 
-    void operator=(char&& str) {
+    void operator=(CMyString&& str) {
         std::cout << "MS" << std::endl;
         delete[] m_str;
-        size_t length = strlen(&str) + 1;
+        size_t length = strlen(str.m_str) + 1;
         m_str = new char[length];
-        strcpy_s(m_str, length, &str);
+        strcpy_s(m_str, length, str.m_str);
         //return *this;
     }
 
