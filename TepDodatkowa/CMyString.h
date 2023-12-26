@@ -3,6 +3,11 @@
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <iostream>
+#include <string> 
+#include <vector> 
+#include <sstream>
+#include <queue>
 
 class CMyString {
 private:
@@ -29,13 +34,31 @@ public:
     }
 
     // Przeciążony operator przypisania =
-    CMyString& operator=(const char* str) {
+    void operator=(const char* str) {
         delete[] m_str;
         size_t length = strlen(str) + 1;
         m_str = new char[length];
         strcpy_s(m_str, length, str);
-        return *this;
+        //return *this;
     }
+
+    void operator=(char&& str) {
+        std::cout << "MS" << std::endl;
+        delete[] m_str;
+        size_t length = strlen(&str) + 1;
+        m_str = new char[length];
+        strcpy_s(m_str, length, &str);
+        //return *this;
+    }
+
+    //// Przeciążony operator przypisania =
+    //CMyString& operator=(const char* str) {
+    //    delete[] m_str;
+    //    size_t length = strlen(str) + 1;
+    //    m_str = new char[length];
+    //    strcpy_s(m_str, length, str);
+    //    return *this;
+    //}
 
     // Przeciążony operator +=
     CMyString& operator+=(const char* str) {
@@ -50,9 +73,9 @@ public:
 
     // Przeciążony operator +
     CMyString operator+(const char* str) const {
-        CMyString result = *this;
+        CMyString result(*this);
         result += str;
-        return result;
+        return std::move(result);
     }
 
     // Metoda sToStandard
