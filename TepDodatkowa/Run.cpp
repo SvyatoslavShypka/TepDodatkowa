@@ -17,11 +17,11 @@ int main() {
     // Testowanie klasy CMyString
     CMyString c_str;
     CMyString c_str2;
-    c_str2 = "";
+    c_str2 = STRING_EMPTY;
 
-    c_str = "Ala ma ";
-    c_str += "kota ";
-    c_str = c_str + "i psa";
+    c_str = STRING_ALA_MA;
+    c_str += STRING_KOTA;
+    c_str = c_str + STRING_I_PSA;
 
 
     // Testowanie operatora rzutowania do bool
