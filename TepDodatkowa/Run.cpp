@@ -3,6 +3,7 @@
 #include <string>
 
 void rzutowanie(CMyString str) {
+
     if (str) {
         std::cout << "Obiekt CMyString nie jest pusty." << std::endl;
         std::cout << str.sToStandard() << std::endl;
