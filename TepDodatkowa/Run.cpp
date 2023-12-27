@@ -1,6 +1,6 @@
 #include <iostream>
-#include <cstring>
 #include "CMyString.h"
+#include <string>
 
 void rzutowanie(CMyString str) {
     if (str) {
@@ -27,6 +27,11 @@ int main() {
     // Testowanie operatora rzutowania do bool
     rzutowanie(c_str);
     rzutowanie(c_str2);
+
+    std::string str("Test string");
+    for (std::string::iterator it = str.begin(); it != str.end(); ++it)
+        std::cout << *it;
+    std::cout << '\n';
 
     return 0;
 }

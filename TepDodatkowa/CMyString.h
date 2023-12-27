@@ -1,13 +1,3 @@
-#include <iostream>
-#include <cstring>
-#include <string.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <iostream>
-#include <string> 
-#include <vector> 
-#include <sstream>
-#include <queue>
 
 const std::string MESSAGE_NORMAL_OPERATOR = "Normal operator=";
 const std::string MESSAGE_MS_OPERATOR = "MS operator=";
@@ -55,7 +45,7 @@ public:
         m_str = new char[length];
         strcpy_s(m_str, length, str);
     }
-
+    // Move Semantics
     void operator=(CMyString&& str) {
         //std::cout << MESSAGE_MS_OPERATOR << std::endl;
         delete[] m_str;
