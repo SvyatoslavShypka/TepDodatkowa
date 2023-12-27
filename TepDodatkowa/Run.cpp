@@ -17,6 +17,7 @@ void rzutowanie(CMyString str) {
 int main() {
     // Testowanie klasy CMyString
     CMyString c_str;
+
     CMyString c_str2;
     c_str2 = STRING_EMPTY;
 
