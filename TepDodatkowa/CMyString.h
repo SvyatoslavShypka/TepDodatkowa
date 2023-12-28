@@ -1,3 +1,7 @@
+#include <string>
+
+using namespace std;
+
 
 const std::string MESSAGE_NORMAL_OPERATOR = "Normal operator=";
 const std::string MESSAGE_MS_OPERATOR = "MS operator=";
@@ -45,6 +49,20 @@ public:
         m_str = new char[length];
         strcpy_s(m_str, length, str);
     }
+
+    // Przeciążony operator przypisania =
+    CMyString& operator=(const string& str) {
+        //std::cout << MESSAGE_NORMAL_OPERATOR << std::endl;
+        delete[] m_str;
+        size_t length = str.size();
+        m_str = new char[length];
+        char arr[200];
+        for (int i = 0; i < length && str[i] != '\0'; i++) {
+            m_str[i] = str[i];
+        }
+        return(*this);
+    }
+
     // Move Semantics
     void operator=(CMyString&& str) {
         //std::cout << MESSAGE_MS_OPERATOR << std::endl;
@@ -82,6 +100,11 @@ public:
     // Przeciążony operator rzutowania do bool
     operator bool() const {
         return m_str != nullptr && m_str[0] != SYMBOL_NULL_TERMINATED;
+    }
+
+    //size
+    int size() {
+        return sizeof(m_str)/sizeof(m_str[0]);
     }
 };
 
