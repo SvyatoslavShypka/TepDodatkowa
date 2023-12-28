@@ -127,9 +127,5 @@ public:
         return result;
     }
 
-    char* iterator() {
-        return &m_str[0];
-    }
-
 };
 

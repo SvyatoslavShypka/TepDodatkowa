@@ -23,7 +23,6 @@ int main() {
 
     CMyString c_str2;
     c_str2 = STRING_EMPTY;
-
     c_str = STRING_ALA_MA;
     c_str += STRING_KOTA;
     c_str = c_str + STRING_I_PSA;
