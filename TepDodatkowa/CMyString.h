@@ -1,4 +1,5 @@
 #include <string>
+//#include<array> 
 
 using namespace std;
 
@@ -42,12 +43,13 @@ public:
     }
 
     // Przeciążony operator przypisania =
-    void operator=(const char* str) {
+    CMyString& operator=(const char* str) {
         //std::cout << MESSAGE_NORMAL_OPERATOR << std::endl;
         delete[] m_str;
         size_t length = strlen(str) + 1;
         m_str = new char[length];
         strcpy_s(m_str, length, str);
+        return(*this);
     }
 
     // Przeciążony operator przypisania =
@@ -64,12 +66,13 @@ public:
     }
 
     // Move Semantics
-    void operator=(CMyString&& str) {
+    CMyString& operator=(CMyString&& str) {
         //std::cout << MESSAGE_MS_OPERATOR << std::endl;
         delete[] m_str;
         size_t length = strlen(str.m_str) + 1;
         m_str = new char[length];
         strcpy_s(m_str, length, str.m_str);
+        return(*this);
     }
 
     // Przeciążony operator +=
@@ -104,7 +107,11 @@ public:
 
     //size
     int size() {
-        return sizeof(m_str)/sizeof(m_str[0]);
+        int i = 0;
+        while (m_str[i] != '\0') {
+            i++;
+        }
+        return i;
     }
 };
 
