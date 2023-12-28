@@ -1,6 +1,9 @@
 #include <iostream>
 #include "CMyString.h"
 #include <string>
+#include "MyIterator.h"
+
+//using namespace std;
 
 void rzutowanie(CMyString str) {
 
@@ -30,9 +33,18 @@ int main() {
     rzutowanie(c_str);
     rzutowanie(c_str2);
 
-    std::string str("Test string iterator");
-    for (std::string::iterator it = str.begin(); it != str.end(); ++it)
-        std::cout << *it;
+    string str("Test string iterator");
+    for (string::iterator it = str.begin(); it != str.end(); ++it)
+        cout << *it;
+    cout << '\n';
+
+    CMyString str3;
+    str3 = "Test CMyString iterator";
+
+    MyIterator from(str3.getM_Str());
+    MyIterator until(str3.getM_Str() + str3.size());
+    for (MyIterator it = from; it != until; it++)
+        std::cout << *it << ' ';
     std::cout << '\n';
 
     CMyString str2;

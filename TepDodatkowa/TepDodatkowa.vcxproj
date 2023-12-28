@@ -130,6 +130,7 @@
     <ClInclude Include="CMyString.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="MyIterator.h" />
     <ClCompile Include="Run.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

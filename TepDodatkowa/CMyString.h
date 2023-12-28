@@ -58,7 +58,6 @@ public:
         delete[] m_str;
         size_t length = str.size();
         m_str = new char[length];
-        char arr[200];
         for (int i = 0; i < length && str[i] != '\0'; i++) {
             m_str[i] = str[i];
         }
@@ -113,5 +112,24 @@ public:
         }
         return i;
     }
+
+    //begin
+    char begin() {
+        return m_str[0];
+    }
+    //size
+    char end() {
+        int i = 0;
+        char result;
+        while (m_str[i] != '\0') {
+            result = m_str[i];
+        }
+        return result;
+    }
+
+    char* iterator() {
+        return &m_str[0];
+    }
+
 };
 
