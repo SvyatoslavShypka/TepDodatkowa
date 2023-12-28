@@ -35,6 +35,10 @@ int main() {
         std::cout << *it;
     std::cout << '\n';
 
+    std::string str2 = "Hello, World!";
+    int length = str2.size();  // Returns the length of the string, which is 13
+    std::cout << "The length of the string is: " << length << std::endl;
+
     return 0;
 }
 
