@@ -3,17 +3,15 @@
 #include <string>
 #include "MyIterator.h"
 
-//using namespace std;
-
 void rzutowanie(CMyString str) {
 
     if (str) {
-        std::cout << MESSAGE_STRING_NOT_EMPTY << std::endl;
-        std::cout << str.sToStandard() << std::endl;
-        std::cout << MESSAGE_STRING_LENGTH << strlen(str.getM_Str()) << std::endl;
+        cout << MESSAGE_STRING_NOT_EMPTY << endl;
+        cout << str.sToStandard() << endl;
+        cout << MESSAGE_STRING_LENGTH << strlen(str.getM_Str()) << endl;
     }
     else {
-        std::cout << MESSAGE_STRING_EMPTY << std::endl;
+        cout << MESSAGE_STRING_EMPTY << endl;
     }
 }
 
@@ -36,7 +34,7 @@ int main() {
     string str("Test string iterator");
     for (string::iterator it = str.begin(); it != str.end(); ++it)
         cout << *it;
-    cout << '\n';
+    cout << endl;
 
     CMyString str3;
     str3 = "Test CMyString iterator";
@@ -44,14 +42,14 @@ int main() {
     MyIterator from(str3.getM_Str());
     MyIterator until(str3.getM_Str() + str3.size());
     for (MyIterator it = from; it != until; it++)
-        std::cout << *it << ' ';
-    std::cout << '\n';
+        cout << *it << ' ';
+    cout << endl;
 
     CMyString str2;
     str2 = "Hello, World!";
     cout << str2.sToStandard() << endl;
     int length = str2.size();  // Returns the length of the string
-    std::cout << "The length of the string is: " << length << std::endl;
+    cout << "The length of the string is: " << length << endl;
 
     return 0;
 }
