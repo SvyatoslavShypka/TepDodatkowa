@@ -3,8 +3,8 @@
 
 using namespace std;
 
-
 const string MESSAGE_NORMAL_OPERATOR = "Normal operator=";
+const string MESSAGE_NORMAL_STRING_OPERATOR = "Normal STRING operator=";
 const string MESSAGE_MS_OPERATOR = "MS operator=";
 const string MESSAGE_OPERATOR_PLUS = "Operator +";
 const string MESSAGE_OPERATOR_PLUS_EQUAL = "Operator +=";
@@ -23,7 +23,9 @@ private:
 
 public:
     // Konstruktor bezparametrowy
-    CMyString() : m_str(nullptr) {}
+    CMyString() {
+        m_str = nullptr;
+    }
 
     // Konstruktor kopiujący
     CMyString(const CMyString& other) {
@@ -47,7 +49,7 @@ public:
 
     // Przeciążony operator przypisania =
     CMyString& operator=(const char* str) {
-        //std::cout << MESSAGE_NORMAL_OPERATOR << std::endl;
+        //cout << MESSAGE_NORMAL_OPERATOR << endl;
         delete[] m_str;
         size_t length = strlen(str) + 1;
         m_str = new char[length];
@@ -57,7 +59,7 @@ public:
 
     // Przeciążony operator przypisania =
     CMyString& operator=(const string& str) {
-        //std::cout << MESSAGE_NORMAL_OPERATOR << std::endl;
+        //cout << MESSAGE_NORMAL_STRING_OPERATOR << endl;
         delete[] m_str;
         size_t length = str.size();
         m_str = new char[length];
@@ -69,7 +71,7 @@ public:
 
     // Move Semantics
     CMyString& operator=(CMyString&& str) {
-        //std::cout << MESSAGE_MS_OPERATOR << std::endl;
+        //cout << MESSAGE_MS_OPERATOR << endl;
         delete[] m_str;
         size_t length = strlen(str.m_str) + 1;
         m_str = new char[length];
@@ -79,7 +81,7 @@ public:
 
     // Przeciążony operator +=
     CMyString& operator+=(const char* str) {
-        //std::cout << MESSAGE_OPERATOR_PLUS_EQUAL << std::endl;
+        //cout << MESSAGE_OPERATOR_PLUS_EQUAL << std::endl;
         size_t newLength = strlen(m_str) + strlen(str) + 1;
         char* temp = new char[newLength];
         strcpy_s(temp, newLength, m_str);
@@ -91,15 +93,15 @@ public:
 
     // Przeciążony operator +
     CMyString operator+(const char* str) const {
-        //std::cout << MESSAGE_OPERATOR_PLUS << std::endl;
+        //cout << MESSAGE_OPERATOR_PLUS << std::endl;
         CMyString result(*this);
         result += str;
         return std::move(result);
     }
 
     // Metoda sToStandard
-    std::string sToStandard() const {
-        return m_str != nullptr ? std::string(m_str) : std::string();
+    string sToStandard() const {
+        return m_str != nullptr ? string(m_str) : string();
     }
 
     // Przeciążony operator rzutowania do bool

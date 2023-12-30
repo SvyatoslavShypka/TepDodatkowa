@@ -3,6 +3,8 @@
 #include <string>
 #include "MyIterator.h"
 
+using namespace std;
+
 void rzutowanie(CMyString str) {
 
     if (str) {
