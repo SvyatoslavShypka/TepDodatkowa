@@ -31,11 +31,6 @@ int main() {
     rzutowanie(c_str);
     rzutowanie(c_str2);
 
-    string str("Test string iterator");
-    for (string::iterator it = str.begin(); it != str.end(); ++it)
-        cout << *it;
-    cout << endl;
-
     CMyString str3;
     str3 = "Test CMyString iterator";
 
