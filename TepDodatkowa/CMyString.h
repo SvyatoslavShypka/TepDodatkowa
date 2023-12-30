@@ -4,10 +4,13 @@
 using namespace std;
 
 
-const std::string MESSAGE_NORMAL_OPERATOR = "Normal operator=";
-const std::string MESSAGE_MS_OPERATOR = "MS operator=";
-const std::string MESSAGE_OPERATOR_PLUS = "Operator +";
-const std::string MESSAGE_OPERATOR_PLUS_EQUAL = "Operator +=";
+const string MESSAGE_NORMAL_OPERATOR = "Normal operator=";
+const string MESSAGE_MS_OPERATOR = "MS operator=";
+const string MESSAGE_OPERATOR_PLUS = "Operator +";
+const string MESSAGE_OPERATOR_PLUS_EQUAL = "Operator +=";
+const string MESSAGE_STRING_EMPTY = "Obiekt CMyString jest pusty.";
+const string MESSAGE_STRING_NOT_EMPTY = "Obiekt CMyString nie jest pusty.";
+const string MESSAGE_STRING_LENGTH = "Dlugosc CMyString: ";
 const char* STRING_EMPTY = "";
 const char* STRING_ALA_MA = "Ala ma ";
 const char* STRING_KOTA = "kota ";

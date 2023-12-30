@@ -8,12 +8,12 @@
 void rzutowanie(CMyString str) {
 
     if (str) {
-        std::cout << "Obiekt CMyString nie jest pusty." << std::endl;
+        std::cout << MESSAGE_STRING_NOT_EMPTY << std::endl;
         std::cout << str.sToStandard() << std::endl;
-        std::cout << "Dlugosc CMyString: " << strlen(str.getM_Str()) << std::endl;
+        std::cout << MESSAGE_STRING_LENGTH << strlen(str.getM_Str()) << std::endl;
     }
     else {
-        std::cout << "Obiekt CMyString jest pusty." << std::endl;
+        std::cout << MESSAGE_STRING_EMPTY << std::endl;
     }
 }
 
